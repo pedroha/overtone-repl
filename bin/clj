@@ -1,0 +1,61 @@
+#!/bin/bash
+# CREATED BY:	Kasim 
+# CREATED ON:	4/16/2010 
+# VERSION:	1.1.0 (intended to stay in sync with Clojure)
+# LICENSE:	Same with Clojure License
+# Check for CLOJURE_HOME, if not set, try to set automatically
+# by checking for clojure.jar wihin a parent folder of current dir
+if [ -z $CLOJURE_HOME ]; then
+    if [ -e "$(dirname $0)/../clojure.jar" ]; then
+        CLOJURE_HOME=$(dirname $(dirname $0))
+	echo CLOJURE_HOME = $CLOJURE_HOME
+    else
+        echo Please set CLOJURE_HOME by putting following lines
+	echo into .profile for OS X and .bash-profile for Linux:
+	echo -------------------------------------------
+        echo 	"CLOJURE_HOME=path/to/unzipped/folder"
+       	echo 	"export CLOJURE_HOME"
+       	echo 	"PATH=\$PATH:\$CLOJURE_HOME/bin"
+       	echo 	"export PATH"
+	echo -------------------------------------------
+    	exit 2
+    fi
+fi
+
+#Unix Defaults
+CLASSPATH_SEP=":"
+FILE_SEP="/"
+SCRIPT=$1
+# Check if the shell is cygwin
+cygwin=false
+case "`uname`" in
+  CYGWIN*) cygwin=true;;
+esac
+
+CLOJURE_LIB=$CLOJURE_HOME/lib
+CLOJURE_JAR=$CLOJURE_HOME/clojure.jar
+# If cygwin,windowize file and classpath sep
+# echo SCRIPT is: $SCRIPT
+if $cygwin; then
+  CLOJURE_LIB=`cygpath -w "$CLOJURE_LIB"`
+  CLOJURE_JAR=`cygpath -w "$CLOJURE_JAR"`
+  CLASSPATH_SEP=";"
+  FILE_SEP="\\"
+fi        
+
+# Add all jars in CLOJURE_HOME/lib folder to the classpath
+for jars in `ls $CLOJURE_LIB`; do
+	if [ -n "${CP}" ]; then
+            export CP="${CLOJURE_LIB}${FILE_SEP}${jars}${CLASSPATH_SEP}${CP}"
+        else
+            export CP="${CLOJURE_LIB}${FILE_SEP}${jars}"
+        fi
+    done
+
+# Invoke repl or execute the script
+echo classpath is: $CP
+if [ -z "${SCRIPT}" ]; then 
+    java -cp $CP$CLASSPATH_SEP$CLOJURE_JAR jline.ConsoleRunner clojure.main
+else
+    java -cp $CP$CLASSPATH_SEP$CLOJURE_JAR clojure.main "$SCRIPT" $@
+fi
