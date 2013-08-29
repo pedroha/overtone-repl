@@ -37,11 +37,13 @@ I found the following clojure REPL, pretty much ready to run:
 http://bitbucket.org/kasim/clojurew/get/tip.zip
 
 2) Add Overtone JAR libraries
+
 	* Update the clojure.jar (from 1.3 to 1.5.1).
 	* Install Leiningen/Overtone and collect all the JARs from %HOME%/.m2 (Maven repository).
 	* Move all those JARs (except conflicting older clojure.jar's) into the clojurew environment.
 
 3) Integrate with SuperCollider
+
 	* Install SuperCollider.
 	* Move the SuperCollider into the ZIP folder.
 	* Customize the path environment in bin/clj-1.bat to include the SuperCollider binaries.
