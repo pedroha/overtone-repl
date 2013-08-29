@@ -32,17 +32,18 @@ How to re-create a standalone Overtone REPL
 -------------------------------------------
 
 1) Clojure REPL
+
 I found the following clojure REPL, pretty much ready to run:
 http://bitbucket.org/kasim/clojurew/get/tip.zip
 
 2) Add Overtone JAR libraries
-a) Update the clojure.jar (from 1.3 to 1.5.1)
-b) Install Leiningen/Overtone and collect all the JARs from %HOME%/.m2 (Maven repository)
-c) Move all those JARs (except conflicting older clojure.jar's) into the clojurew environment
+	* Update the clojure.jar (from 1.3 to 1.5.1)
+	* Install Leiningen/Overtone and collect all the JARs from %HOME%/.m2 (Maven repository)
+	* Move all those JARs (except conflicting older clojure.jar's) into the clojurew environment
 
 3) Integrate with SuperCollider
-a) Install SuperCollider
-b) Move the SuperCollider into the ZIP folder
-c) Customize the path environment in bin/clj-1.bat to include the SuperCollider binaries
+	* Install SuperCollider
+	* Move the SuperCollider into the ZIP folder
+	* Customize the path environment in bin/clj-1.bat to include the SuperCollider binaries
 
 
