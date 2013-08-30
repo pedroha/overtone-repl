@@ -38,20 +38,20 @@ http://bitbucket.org/kasim/clojurew/get/tip.zip
 
 2) Add Overtone JAR libraries
 
-	<ul>
+<ul>
 
-	<li>Update the clojure.jar (from 1.3 to 1.5.1).</li>
-	<li>Install Leiningen/Overtone and collect all the JARs from %HOME%/.m2 (Maven repository)</li>
-	<li>Move all those JARs (except conflicting older clojure.jar's) into the clojurew environment.</li>
-	</ul>
+<li>Update the clojure.jar (from 1.3 to 1.5.1).</li>
+<li>Install Leiningen/Overtone and collect all the JARs from %HOME%/.m2 (Maven repository)</li>
+<li>Move all those JARs (except conflicting older clojure.jar's) into the clojurew environment.</li>
+</ul>
 
 3) Integrate with SuperCollider
 
-	<ul>
-	<li>Install SuperCollider.</li>
-	<li>Move the SuperCollider into the ZIP folder.</li>
-	<li>Customize the path environment in bin/clj-1.bat to include the SuperCollider binaries.</li>
-	</ul>
+<ul>
+<li>Install SuperCollider.</li>
+<li>Move the SuperCollider into the ZIP folder.</li>
+<li>Customize the path environment in bin/clj-1.bat to include the SuperCollider binaries.</li>
+</ul>
 
 
 Testing Overtone
