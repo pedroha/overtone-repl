@@ -25,7 +25,7 @@ We wanted to customize a ZIP package pretty much ready to run for our Coderdojo 
 
 Hence, I took the following steps to create this ZIP package.
 
-Just download the ZIP file, uncompress, and double-click on /bin/clj-1.bat
+Just download the <a href="https://github.com/pedroha/overtone-repl/archive/master.zip">ZIP file</a>, uncompress, and double-click on /bin/clj-1.bat
 
 
 How to re-create a standalone Overtone REPL
